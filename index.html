@@ -35,7 +35,7 @@
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="js/leaflet-measure.js"></script>
         <script src="data/1444_1.js"></script>
-        <script src="data/_2.js"></script>
+        <script src="data/ArafatMDB_2.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -54,8 +54,8 @@
             highlightLayer.openPopup();
         }
         var map = L.map('map', {
-            zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[21.35490775184172,39.975091326140465],[21.360027115123525,39.98226004244106]]);
+            zoomControl:true, maxZoom:27, minZoom:1
+        }).fitBounds([[21.357607612695,39.97513516589045],[21.359904988314657,39.97871778928579]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -81,7 +81,7 @@
             opacity: 1.0,
             attribution: '',
             minZoom: 1,
-            maxZoom: 28,
+            maxZoom: 27,
             minNativeZoom: 0,
             maxNativeZoom: 18
         });
@@ -237,7 +237,7 @@
         });
         bounds_group.addLayer(layer_1444_1);
         map.addLayer(layer_1444_1);
-        function pop__2(feature, layer) {
+        function pop_ArafatMDB_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -279,9 +279,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style__2_0() {
+        function style_ArafatMDB_2_0() {
             return {
-                pane: 'pane__2',
+                pane: 'pane_ArafatMDB_2',
                 radius: 8.0,
                 opacity: 1,
                 color: 'rgba(179,92,21,1.0)',
@@ -295,37 +295,37 @@
                 interactive: true,
             }
         }
-        map.createPane('pane__2');
-        map.getPane('pane__2').style.zIndex = 402;
-        map.getPane('pane__2').style['mix-blend-mode'] = 'normal';
-        var layer__2 = new L.geoJson(json__2, {
+        map.createPane('pane_ArafatMDB_2');
+        map.getPane('pane_ArafatMDB_2').style.zIndex = 402;
+        map.getPane('pane_ArafatMDB_2').style['mix-blend-mode'] = 'normal';
+        var layer_ArafatMDB_2 = new L.geoJson(json_ArafatMDB_2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json__2',
-            layerName: 'layer__2',
-            pane: 'pane__2',
-            onEachFeature: pop__2,
+            dataVar: 'json_ArafatMDB_2',
+            layerName: 'layer_ArafatMDB_2',
+            pane: 'pane_ArafatMDB_2',
+            onEachFeature: pop_ArafatMDB_2,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style__2_0(feature));
+                return L.circleMarker(latlng, style_ArafatMDB_2_0(feature));
             },
         });
-        bounds_group.addLayer(layer__2);
-        map.addLayer(layer__2);
+        bounds_group.addLayer(layer_ArafatMDB_2);
+        map.addLayer(layer_ArafatMDB_2);
         map.on("zoomend", function(e) {
             if (map.getZoom() <= 19 && map.getZoom() >= 16) {
-                map.addLayer(layer__2);
+                map.addLayer(layer_ArafatMDB_2);
             } else if (map.getZoom() > 19 || map.getZoom() < 16) {
-                map.removeLayer(layer__2);
+                map.removeLayer(layer_ArafatMDB_2);
             }
         });
             if (map.getZoom() <= 19 && map.getZoom() >= 16) {
-                map.addLayer(layer__2);
+                map.addLayer(layer_ArafatMDB_2);
             } else if (map.getZoom() > 19 || map.getZoom() < 16) {
-                map.removeLayer(layer__2);
+                map.removeLayer(layer_ArafatMDB_2);
             }
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
@@ -338,55 +338,30 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/_2.png" /> اللوحات الكهربائية': layer__2,'تخصيص مخيمات عرفات 1444<br /><table><tr><td style="text-align: center;"><img src="legend/1444_1_حجاجإيران0.png" /></td><td>حجاج إيران</td></tr><tr><td style="text-align: center;"><img src="legend/1444_1_حجاجالداخل1.png" /></td><td>حجاج الداخل</td></tr><tr><td style="text-align: center;"><img src="legend/1444_1_حجاجالدولالعربية2.png" /></td><td>حجاج الدول العربية</td></tr><tr><td style="text-align: center;"><img src="legend/1444_1_حجاجغربأوروباB2C3.png" /></td><td>حجاج غرب أوروبا (B2C)</td></tr></table>': layer_1444_1,"Google Satellite Map": layer_GoogleSatelliteMap_0,},{collapsed:false}).addTo(map);
-        map.on("zoomend", function(){
-
-                if (map.hasLayer(layer__2)) {
-                    if (map.getZoom() <= 17 && map.getZoom() >= 19) {
-                        layer__2.eachLayer(function (layer) {
-                            layer.openTooltip();
-                        });
-                    } else {
-                        layer__2.eachLayer(function (layer) {
-                            layer.closeTooltip();
-                        });
-                    }
-                }
-        });
+        L.control.layers(baseMaps,{'<img src="legend/ArafatMDB_2.png" /> Arafat MDB': layer_ArafatMDB_2,'تخصيص مخيمات عرفات 1444<br /><table><tr><td style="text-align: center;"><img src="legend/1444_1_حجاجإيران0.png" /></td><td>حجاج إيران</td></tr><tr><td style="text-align: center;"><img src="legend/1444_1_حجاجالداخل1.png" /></td><td>حجاج الداخل</td></tr><tr><td style="text-align: center;"><img src="legend/1444_1_حجاجالدولالعربية2.png" /></td><td>حجاج الدول العربية</td></tr><tr><td style="text-align: center;"><img src="legend/1444_1_حجاجغربأوروباB2C3.png" /></td><td>حجاج غرب أوروبا (B2C)</td></tr></table>': layer_1444_1,"Google Satellite Map": layer_GoogleSatelliteMap_0,},{collapsed:false}).addTo(map);
         setBounds();
         var i = 0;
-        layer__2.eachLayer(function(layer) {
+        layer_ArafatMDB_2.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['MDB_Tag'] !== null?String('<div style="color: #323232; font-size: 10pt; font-weight: bold; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['MDB_Tag']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css__2'});
+            layer.bindTooltip((layer.feature.properties['MDB_Tag'] !== null?String('<div style="color: #323232; font-size: 10pt; font-weight: bold; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['MDB_Tag']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ArafatMDB_2'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
               addLabel(layer, i);
               i++;
         });
-                if (map.hasLayer(layer__2)) {
-                    if (map.getZoom() <= 17 && map.getZoom() >= 19) {
-                        layer__2.eachLayer(function (layer) {
-                            layer.openTooltip();
-                        });
-                    } else {
-                        layer__2.eachLayer(function (layer) {
-                            layer.closeTooltip();
-                        });
-                    }
-                }
-        resetLabels([layer__2]);
+        resetLabels([layer_ArafatMDB_2]);
         map.on("zoomend", function(){
-            resetLabels([layer__2]);
+            resetLabels([layer_ArafatMDB_2]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer__2]);
+            resetLabels([layer_ArafatMDB_2]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer__2]);
+            resetLabels([layer_ArafatMDB_2]);
         });
         </script>
     </body>
